@@ -32,15 +32,16 @@ hideAll();
 showNormalState();
 }
 });
-btnBuyAlt.addEventListener("click",()=>setCoursePrice(priceAlt));
-btnBuyReg.addEventListener("click",()=>setCoursePrice(priceReg));
+btnBuyAlt.addEventListener("click", () => buyCourse(priceAlt));
+btnBuyReg.addEventListener("click", () => buyCourse(priceReg));
 
-function setCoursePrice(price){
-priceFild.value=price;
-priceWordsFild.value=price===priceAlt?priceOneWords:priceTwoWords;
-priceID=price===priceAlt?IDOpt[0]:IDOpt[1];
-location.hash="registrationForm";
-window.scrollTo({top: 0, behavior: 'smooth'});
+function buyCourse(price) {
+  payType.value = price === priceAlt ? typeOpt[0] : typeOpt[1];
+  priceFild.value = price;
+  priceWordsFild.value = price === priceAlt ? priceOneWords : priceTwoWords;
+  priceID = price === priceAlt ? IDOpt[0] : IDOpt[1];
+  location.hash = "registrationForm";
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 var stripe=Stripe("pk_live_51IExHcCegkqBtvRmaF2bwzdZGLCkC3z5jZTH7rLe8yYDytA9NSNsXNJRlv975sGydNjCJrbbUr8TNUdobNR4D2fy003F8G7V1Q");
